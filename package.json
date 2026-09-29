@@ -1,0 +1,11 @@
+{
+  "name": "rhythmlab-premiere",
+  "version": "0.2.0",
+  "private": true,
+  "description": "RhythmLab — One Edit, Three Rhythms, a Premiere Pro UXP plugin.",
+  "scripts": {
+    "test": "node tests/run-tests.js",
+    "package": "python tools/package.py"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RhythmLab</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <div>
+        <div class="eyebrow">ONE EDIT · THREE RHYTHMS</div>
+        <h1>RhythmLab</h1>
+        <p>Create Calm, Beat and Build edits from one ordered set of excerpts.</p>
+      </div>
+      <span class="version">v0.2.0</span>
+    </header>
+
+    <section class="card">
+      <div class="section-title-row">
+        <h2>1. Source selection</h2>
+        <button id="refreshSelection" class="secondary">Refresh selection</button>
+      </div>
+      <p class="hint">Select footage clips and one music item in Premiere's Project panel, then refresh.</p>
+      <div id="selectionSummary" class="status neutral">No selection loaded.</div>
+      <div id="clips" class="clip-list"></div>
+      <label class="field">
+        <span>Music</span>
+        <select id="musicSelect"></select>
+      </label>
+    </section>
+
+    <section class="card">
+      <h2>2. Timing</h2>
+      <div class="grid two">
+        <label class="field"><span>Target duration (s)</span><input id="targetDuration" type="number" min="0.1" step="0.1" value="20" /></label>
+        <label class="field"><span>Frame rate</span><input id="frameRate" type="number" min="1" step="0.001" value="30" /></label>
+      </div>
+      <div class="grid two">
+        <label class="field"><span>Manual BPM</span><input id="bpm" type="number" min="20" max="400" step="0.1" value="120" /></label>
+        <label class="field"><span>First beat (s)</span><input id="firstBeat" type="number" min="0" step="0.001" value="0" /></label>
+      </div>
+      <div class="actions inline">
+        <button id="analyzeMusic" class="secondary">Analyze selected WAV</button>
+        <span id="analysisResult" class="micro">Manual BPM is always available as fallback.</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>3. Preview</h2>
+      <div class="mode-tabs" role="tablist">
+        <button class="mode active" data-mode="calm">Calm</button>
+        <button class="mode" data-mode="beat">Beat</button>
+        <button class="mode" data-mode="build">Build</button>
+      </div>
+      <div id="planPreview" class="plan"></div>
+      <button id="previewPlan" class="secondary wide">Rebuild preview</button>
+    </section>
+
+    <section class="card sticky-card">
+      <div id="runStatus" class="status neutral">Ready.</div>
+      <div class="progress"><div id="progressBar" class="progress-bar"></div></div>
+      <div class="actions">
+        <button id="generateAll" class="primary">Generate all 3 sequences</button>
+        <button id="cancel" class="danger" disabled>Cancel</button>
+      </div>
+      <p class="micro">Creates uniquely named sequences and reports partial output if a host operation fails.</p>
+    </section>
+
+    <footer>Created by Amir Saeid Dehghan</footer>
+  </main>
+  <script src="src/util.js"></script>
+  <script src="src/planner.js"></script>
+  <script src="src/wav.js"></script>
+  <script src="src/beat-analysis.js"></script>
+  <script src="src/host-premiere.js"></script>
+  <script src="src/ui.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>

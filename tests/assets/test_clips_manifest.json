@@ -1,0 +1,28 @@
+{
+  "fps": 30,
+  "targetSeconds": 8,
+  "clips": [
+    {
+      "name": "TestClip_1",
+      "inSeconds": 0,
+      "outSeconds": 4
+    },
+    {
+      "name": "TestClip_2",
+      "inSeconds": 0,
+      "outSeconds": 4
+    },
+    {
+      "name": "TestClip_3",
+      "inSeconds": 0,
+      "outSeconds": 4
+    },
+    {
+      "name": "TestClip_4",
+      "inSeconds": 0,
+      "outSeconds": 4
+    }
+  ],
+  "music": "click_120bpm.wav",
+  "expectedBpm": 120
+}
